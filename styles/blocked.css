@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #FFFFF8;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.header {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -20px;
+  padding: 60px;
+}
+
+.insult {
+  font-size: clamp(48px, 8vw, 120px);
+  line-height: 1.1;
+  text-align: center;
+  color: #000;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 400;
+  max-width: 1200px;
+}
+
+.insult .italic {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.footer {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 14px;
+  color: #000;
+}
+
+.lime {
+  background: #000;
+  color: #BFFF0B;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .header {
+    top: 20px;
+    left: 20px;
+  }
+
+  .container {
+    padding: 40px 20px;
+  }
+
+  .footer {
+    bottom: 20px;
+    font-size: 12px;
+  }
+}

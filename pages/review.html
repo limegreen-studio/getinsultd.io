@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monthly Review - SelfBlock</title>
+  <link rel="stylesheet" href="../styles/review.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📊 Monthly Review</h1>
+      <p class="subtitle">Your distraction attempts & reasons</p>
+      <button class="btn-close" id="closeReview">✕</button>
+    </div>
+
+    <div class="stats-overview">
+      <div class="stat-card">
+        <div class="stat-value" id="totalAttempts">0</div>
+        <div class="stat-label">Total Attempts</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="uniqueSites">0</div>
+        <div class="stat-label">Sites Accessed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="thisMonth">0</div>
+        <div class="stat-label">This Month</div>
+      </div>
+    </div>
+
+    <div class="filters">
+      <select id="monthFilter" class="filter-select">
+        <option value="all">All Time</option>
+        <option value="current">This Month</option>
+      </select>
+      <select id="siteFilter" class="filter-select">
+        <option value="all">All Sites</option>
+      </select>
+    </div>
+
+    <div class="attempts-list" id="attemptsList">
+      <div class="empty-state">
+        <p>No access attempts recorded yet</p>
+        <p class="empty-subtitle">When you try to access blocked sites, they'll appear here</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-export" id="exportData">💾 Export Data</button>
+      <button class="btn-clear" id="clearHistory">🗑️ Clear History</button>
+    </div>
+  </div>
+  <script src="../scripts/review.js"></script>
+</body>
+</html>
