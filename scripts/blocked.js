@@ -1,7 +1,18 @@
 // Blocked page script
 
+const motivationalTexts = [
+  "I'm not dumb",
+  "I have an ambition",
+  "I believe in myself",
+  "I can do better",
+  "I'm capable of greatness",
+  "I won't give up"
+];
+
 document.addEventListener('DOMContentLoaded', async () => {
   await loadRandomInsult();
+  setupMotivationalButton();
+  fetchGitHubStars();
 });
 
 // Load and display a random insult
@@ -42,4 +53,32 @@ function formatInsult(insultText) {
   });
 
   return formatted;
+}
+
+// Setup the motivational button with random text
+function setupMotivationalButton() {
+  const randomText = motivationalTexts[Math.floor(Math.random() * motivationalTexts.length)];
+
+  document.getElementById('buttonText').textContent = randomText;
+  document.getElementById('buttonHoverText').textContent = randomText;
+
+  // Add click event to close the tab
+  document.getElementById('motivationalButton').addEventListener('click', () => {
+    chrome.tabs.getCurrent((tab) => {
+      chrome.tabs.remove(tab.id);
+    });
+  });
+}
+
+// Fetch GitHub star count
+async function fetchGitHubStars() {
+  try {
+    const response = await fetch('https://api.github.com/repos/limegreenStudios/getinsultd');
+    const data = await response.json();
+    const stars = data.stargazers_count || 0;
+    document.getElementById('starCount').textContent = stars;
+  } catch (error) {
+    console.error('Error fetching GitHub stars:', error);
+    document.getElementById('starCount').textContent = '★';
+  }
 }

@@ -1,290 +1,158 @@
-# SelfBlock - Website Blocker with Accountability
+# GetInsultd - Chrome Extension That Roasts You for getting distracted :D
 
-A Chrome extension that helps you stay focused by blocking distracting websites and making you reflect on why you tried to access them.
+A brutal Chrome extension that blocks distracting websites and insults you when you try to access them. Get motivated through tough love! 🔥🥰🔪
 
-## 🚀 Features
+## 🚀 What Does This Extension Do?
 
-### 1. **Easy Website Blocking**
-- Click the extension icon to block/unblock the current website
-- Manage all blocked sites from the popup
-- One-click toggle for quick changes
+GetInsultd helps you stay focused by:
 
-### 2. **Accountability & Reflection**
-- When you try to access a blocked site, you're presented with an insulting question
-- Must provide a written reason before proceeding
-- Forces mindful decision-making about distractions
+- **Blocking websites** you know you shouldn't visit during work/study time ( thou shall add them )
+- **Showing you savage insults** when you try to access blocked sites
+- **Giving you a motivational button** to close the tab and get back to work
 
-### 3. **Smart Theme Detection**
-- Automatically adapts to your system's light/dark mode
-- Beautiful, distraction-free blocked page design
-- Smooth theme transitions
+## 📦 How to Install (Step-by-Step for Beginners)
 
-### 4. **Monthly Review Dashboard**
-- View all your blocked site access attempts
-- See your reasons for wanting to access each site
-- Filter by month or specific websites
-- Export your data for analysis
+Don't worry if you've never installed a Chrome extension from code before! Just follow these simple steps:
 
-### 5. **Local Storage**
-- All data stored locally in your browser
-- No external servers or data collection
-- Complete privacy and control
+### Step 1: Install Git (if you don't have it)
 
-## 📦 Installation
+**For Mac:**
 
-### From Source (Development)
+1. Open Terminal (press `Cmd + Space`, type "Terminal", press Enter)
+2. Type: `git --version` and press Enter
+3. If you don't have it, you'll be prompted to install it automatically
 
-1. **Clone or download this repository**
+**For Windows:**
+
+1. Download Git from [git-scm.com](https://git-scm.com/download/win)
+2. Install it with default settings
+3. Open Command Prompt and type `git --version` to verify
+
+**For Linux:**
+
+```bash
+sudo apt-get install git  # For Ubuntu/Debian
+# or
+sudo yum install git       # For Fedora/CentOS
+```
+
+### Step 2: Download the Extension Code
+
+1. **Open your terminal/command prompt**
+
+   - Mac: `Cmd + Space` → type "Terminal"
+   - Windows: Press `Win + R` → type "cmd" → press Enter
+   - Linux: `Ctrl + Alt + T`
+
+2. **Navigate to where you want to save the extension**
+
    ```bash
-   cd chrome-extension
+   cd Desktop  # This saves it to your Desktop
+   # or
+   cd Documents  # This saves it to your Documents
    ```
 
-2. **Open Chrome Extensions page**
-   - Navigate to `chrome://extensions/`
-   - Enable "Developer mode" (top right toggle)
+3. **Clone (download) the repository**
 
-3. **Load the extension**
-   - Click "Load unpacked"
-   - Select the `chrome-extension` folder
+   ```bash
+   git clone https://github.com/limegreen-studio/getinsultd.git
+   ```
 
-4. **Pin the extension**
-   - Click the puzzle icon in Chrome toolbar
-   - Pin "SelfBlock" for easy access
+4. **Navigate into the extension folder**
+   ```bash
+   cd getinsultd/chrome-extension
+   ```
 
-### Icon Setup
+### Step 3: Load the Extension in Chrome
 
-Before loading, you need to add icons. Create three PNG files:
-- `icons/icon16.png` (16x16px)
-- `icons/icon48.png` (48x48px)
-- `icons/icon128.png` (128x128px)
+1. **Open Google Chrome**
 
-Or use a placeholder by creating simple red "🚫" icons.
+2. **Go to Extensions page**
 
-## 🎯 How to Use
+   - Type `chrome://extensions/` in the address bar and press Enter
+   - OR click the three dots (⋮) → More Tools → Extensions
 
-### Blocking a Website
+3. **Enable Developer Mode**
 
-1. Visit the website you want to block
-2. Click the SelfBlock extension icon
+   - Look for a toggle switch that says "Developer mode" in the top-right corner
+   - Click it to turn it ON (it should turn blue/green)
+
+4. **Load the extension**
+
+   - Click the "Load unpacked" button (appears after enabling Developer mode)
+   - Navigate to where you cloned the repository
+   - Select the `chrome-extension` folder (the one that contains `manifest.json`)
+   - Click "Select Folder" or "Open"
+
+5. **Pin the extension (optional but recommended)**
+   - Click the puzzle icon (🧩) in your Chrome toolbar
+   - Find "GetInsultd" in the list
+   - Click the pin icon (📌) next to it
+   - Now it will show in your toolbar!
+
+### Step 4: Start Using It!
+
+You're all set! 🎉
+
+## 🎯 How to Use GetInsultd
+
+### Block a Website
+
+1. Visit any website you want to block (like reddit.com, twitter.com, etc.)
+2. Click the GetInsultd extension icon in your toolbar
 3. Click "Block This Site"
-4. The site is now blocked!
+4. Done! That site is now blocked
 
-### Accessing a Blocked Site
+### What Happens When You Try to Access a Blocked Site?
 
-1. Try to visit a blocked website
-2. You'll see a block page with an insulting question
-3. Type your honest reason in the text box
-4. Click "Submit & Continue Anyway" to proceed (temporary 5-second unblock)
-5. Or click "Go Back" to stay focused
+Go try and see
 
-### Reviewing Your Activity
+### Unblock a Website
 
-1. Click the extension icon
-2. Click "📊 View Monthly Review"
-3. See all your attempts and reasons
-4. Filter by month or website
-5. Export your data as JSON
+1. Click the GetInsultd extension icon
+2. Find the website in your blocked list
+3. Click the ✕ button next to it
+4. The site is now unblocked!
 
-### Managing Blocked Sites
+## 📝 Customization
 
-- **Remove a site**: Click the ✕ next to it in the popup
-- **Clear all blocks**: Click "Clear All Blocks" (with confirmation)
-- **View blocked count**: See the red badge next to "Blocked Websites"
+### Add Your Own Insults
 
-## 📊 What Data is Stored
+1. Open the file: `data/insults.json`
+2. Add your custom insults in this format:
+   ```json
+   "Your custom *insult* goes here"
+   ```
+   (Text between `*` will be shown in italic and in diff font)
+3. Save the file
+4. Reload the extension in Chrome
 
-All data is stored locally using Chrome's storage API:
-
-### Blocked Sites List
-```json
-{
-  "blockedSites": ["facebook.com", "twitter.com", "reddit.com"]
-}
-```
-
-### Access Attempts
-```json
-{
-  "blockAttempts": [
-    {
-      "id": "1234567890",
-      "domain": "facebook.com",
-      "url": "https://facebook.com/feed",
-      "timestamp": 1234567890000,
-      "question": "Seriously? This site again?",
-      "reason": "I wanted to check notifications",
-      "proceeded": true
-    }
-  ]
-}
-```
-
-## 🎨 Insulting Questions
-
-The extension uses 20 different insulting questions to make you think twice:
-
-- "Seriously? This site again? What's your excuse this time?"
-- "Can't stay focused for 5 minutes? Why are you back here?"
-- "Oh look who's procrastinating again. What's your brilliant reason?"
-- "Really productive day you're having, isn't it? Why this site?"
-- And 16 more!
-
-Each time you hit a blocked site, you get a random question.
-
-## 🔧 Configuration
-
-### Customizing Insult Questions
-
-Edit `scripts/content.js` and modify the `INSULT_QUESTIONS` array:
-
-```javascript
-const INSULT_QUESTIONS = [
-  "Your custom question here?",
-  "Another custom question?",
-  // Add more...
-];
-```
-
-### Changing Grace Period
-
-In `scripts/blocked.js`, adjust the timeout (default 5000ms = 5 seconds):
-
-```javascript
-setTimeout(async () => {
-  await chrome.runtime.sendMessage({
-    action: 'addBlock',
-    domain: domain
-  });
-}, 5000); // Change this value
-```
-
-## 📱 Pages
-
-### 1. Popup (`pages/popup.html`)
-- Quick access to block/unblock current site
-- List of all blocked sites
-- Navigation to review page
-
-### 2. Blocked Page (`pages/blocked.html`)
-- Shown when accessing blocked sites
-- Random insulting question
-- Text input for reasoning
-- Light/dark mode adaptive
-
-### 3. Review Page (`pages/review.html`)
-- Monthly statistics
-- Full attempt history
-- Filtering options
-- Data export
-
-## 🔐 Privacy & Security
-
-- **100% Local**: All data stored in Chrome's local storage
-- **No Tracking**: No analytics, no external calls
-- **No Permissions Abuse**: Only requests necessary permissions
-- **Open Source**: Review all code yourself
-
-## 🛠️ Development
-
-### File Structure
-
-```
-chrome-extension/
-├── manifest.json           # Extension configuration
-├── icons/                  # Extension icons
-│   ├── icon16.png
-│   ├── icon48.png
-│   └── icon128.png
-├── pages/                  # HTML pages
-│   ├── popup.html         # Extension popup
-│   ├── blocked.html       # Block page
-│   └── review.html        # Review dashboard
-├── styles/                 # CSS files
-│   ├── popup.css
-│   ├── blocked.css
-│   └── review.css
-├── scripts/                # JavaScript files
-│   ├── background.js      # Service worker
-│   ├── content.js         # Content script
-│   ├── popup.js           # Popup logic
-│   ├── blocked.js         # Block page logic
-│   └── review.js          # Review page logic
-└── README.md              # This file
-```
-
-### Key Components
-
-1. **Service Worker** (`background.js`)
-   - Manages blocked sites list
-   - Handles storage operations
-   - Monthly review notifications
-
-2. **Content Script** (`content.js`)
-   - Runs on all pages
-   - Checks if page is blocked
-   - Redirects to block page
-
-3. **Popup** (`popup.js`)
-   - UI for managing blocks
-   - Current site status
-   - Quick actions
-
-4. **Block Page** (`blocked.js`)
-   - Theme detection
-   - Answer collection
-   - Temporary unblock logic
-
-5. **Review Page** (`review.js`)
-   - Statistics calculation
-   - Filtering and display
-   - Data export
-
-## 🎯 Use Cases
-
-### For Students
-- Block social media during study time
-- Review why you got distracted
-- Build better focus habits
-
-### For Professionals
-- Block time-wasting sites during work
-- Track productivity patterns
-- Maintain accountability
-
-### For Anyone
-- Reduce mindless browsing
-- Understand your distraction triggers
-- Make conscious choices
+5. Save and reload the extension
 
 ## 🤝 Contributing
 
-Feel free to:
-- Add more insulting questions
-- Improve the UI/UX
-- Add new features
-- Fix bugs
-- Suggest improvements
+Want to make GetInsultd better? Here's how:
 
-## 📝 Future Ideas
+1. Prep a logo, we dont have one right now. Im thinking i in italics or something striking.
 
-- [ ] Scheduling (block only during work hours)
-- [ ] Statistics graphs and charts
-- [ ] Custom block messages per site
-- [ ] Share anonymous insights
-- [ ] Mobile companion app
-- [ ] AI-generated personalized questions
-- [ ] Gamification (streaks, achievements)
+Ideas for contributions:
 
-## ⚖️ License
-
-MIT License - Use freely, no attribution required
+- Add more insults
+- Give feedback on the usecase, Give suggestions for improvment :D
 
 ## 🙏 Credits
 
-Built with vanilla JavaScript, Chrome Extensions API, and tough love.
+**Built by Lime Green Studios**
 
----
+- [lime green studios](https://limegreenstudios.work)
+- Star the repo if you like it! ⭐
 
-**Remember**: The goal isn't to make you feel bad - it's to make you think twice before breaking your own rules. Use this extension to build better habits and stay accountable to yourself.
+## ⚖️ License
 
-Stay focused! 🎯
+## Innum adha podala, podrom porumaiya
+
+**Remember**: The insults are meant to motivate you, not hurt you. Use GetInsultd to build better habits and stay focused on what matters! 💪
+
+**Stay focused. Get Insultd. Be Productive.** 🚀
+
+P.S this is a WIP repo, dont blame us if things are not right :D
