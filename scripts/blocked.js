@@ -73,7 +73,7 @@ function setupMotivationalButton() {
 // Fetch GitHub star count
 async function fetchGitHubStars() {
   try {
-    const response = await fetch('https://api.github.com/repos/limegreenStudios/getinsultd');
+    const response = await fetch('https://api.github.com/repos/limegreen-studio/getinsultd.io');
     const data = await response.json();
     const stars = data.stargazers_count || 0;
     document.getElementById('starCount').textContent = stars;
