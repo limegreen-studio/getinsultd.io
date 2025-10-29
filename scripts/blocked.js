@@ -73,9 +73,15 @@ function setupMotivationalButton() {
 // Fetch GitHub star count
 async function fetchGitHubStars() {
   try {
-    const response = await fetch('https://api.github.com/repos/limegreen-studio/getinsultd.io');
+    // previous fetch URL (official github's fetching)
+    // const star_fetch_url = "https://api.github.com/repos/limegreen-studio/getinsultd.io"; 
+
+    // this is an endpoint from shields.io that generates badges - instead we get JSON with the star count stored against "values" key
+    const star_fetch_url = "https://img.shields.io/github/stars/limegreen-studio/getinsultd.io.json?cacheSeconds=3600";
+
+    const response = await fetch(star_fetch_url);
     const data = await response.json();
-    const stars = data.stargazers_count || 0;
+    const stars = data.value || 0;
     document.getElementById('starCount').textContent = stars;
   } catch (error) {
     console.error('Error fetching GitHub stars:', error);
