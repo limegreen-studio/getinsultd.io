@@ -58,11 +58,6 @@ sudo yum install git       # For Fedora/CentOS
    git clone https://github.com/limegreen-studio/getinsultd.io.git
    ```
 
-4. **Navigate into the extension folder**
-   ```bash
-   cd getinsultd.io/chrome-extension
-   ```
-
 ### Step 3: Load the Extension in Chrome
 
 1. **Open Google Chrome**
